@@ -31,25 +31,25 @@ const Page=(props)=>{
              return(
                 <ul>
                     <div>
-                    <h3 className="center">New Questions</h3>
+                    <h3 >New Questions</h3>
                 {doneQuestions.map((doneQuestion)=>(
-                    <ul className="tweet" key={doneQuestion}>
-                        <div className="tweet-info">
-                        <h2 className="center">{questions[doneQuestion].author}</h2>
-                        <a className="center replying-to" >{formatDate(questions[doneQuestion].timestamp)}</a>
+                    <ul  key={doneQuestion}>
+                        <div >
+                        <h2 >{questions[doneQuestion].author}</h2>
+                        <a >{formatDate(questions[doneQuestion].timestamp)}</a>
                         <button className="btn"  onClick={(e)=>toNewQuestion(e,doneQuestion)}>Show</button>
                         </div>
                     </ul>
                 ))}
                 </div>
                 <div>
-                <h3 className="center">Done</h3>
+                <h3 >Done</h3>
                 {newQuestions.map((newQuestion)=>(
-                    <ul className="tweet" key={newQuestion}>
-                        <div className="tweet-info">
-                    <h2 className="center">{questions[newQuestion].author}</h2>
-                    <a className="center replying-to">{formatDate(questions[newQuestion].timestamp)}</a>
-                    <button className="btn"  onClick={(e)=>toDoneQuestion(e,newQuestion)}>Show</button>
+                    <ul  key={newQuestion}>
+                        <div >
+                    <h2 >{questions[newQuestion].author}</h2>
+                    <a >{formatDate(questions[newQuestion].timestamp)}</a>
+                    <button  onClick={(e)=>toDoneQuestion(e,newQuestion)}>Show</button>
                     </div>
                 </ul>
                 ))}

@@ -55,15 +55,51 @@ const NewQuestion = (props) => {
     };
 
     return (
-        <div>
-            <h1>Poll by {question.author}</h1>
-            <ul>
-                <li onClick={(e) => handleAnswer(e, 'optionOne')}>{optionOneText}</li>
-                <li onClick={(e) => handleAnswer(e, 'optionTwo')}>{optionTwoText}</li>
-            </ul>
-        </div>
+        <div style={styles.container}>
+        <h1 style={styles.title}>Poll by {question.author}</h1>
+        <ul style={styles.optionsList}>
+          <li style={styles.option} onClick={(e) => handleAnswer(e, 'optionOne')}>
+            {optionOneText}
+          </li>
+          <li style={styles.option} onClick={(e) => handleAnswer(e, 'optionTwo')}>
+            {optionTwoText}
+          </li>
+        </ul>
+      </div>
     );
 };
+const styles = {
+    container: {
+      maxWidth: '600px',
+      margin: 'auto',
+      padding: '20px',
+      border: '1px solid #ccc',
+      borderRadius: '8px',
+      boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+      backgroundColor: '#fff',
+    },
+    title: {
+      textAlign: 'center',
+      marginBottom: '20px',
+      fontSize: '24px',
+      fontWeight: 'bold',
+    },
+    optionsList: {
+      listStyleType: 'none',
+      padding: 0,
+    },
+    option: {
+      cursor: 'pointer',
+      padding: '10px 20px',
+      marginBottom: '10px',
+      backgroundColor: '#f0f0f0',
+      borderRadius: '5px',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+      transition: 'background-color 0.3s ease',
+    },
+    
+  };
+  
 
 const mapStateToProps = ({ authedUser, questions }) => {
     return {
